@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+    button {
+        border: none;
+        margin-left: 15px;
+        height: 50px;
+        width: 50px
+       
+    }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!---here is the title---> 
+    <h3 style="font-family:arial;text-align:center">Templates</h3>
+    
+    <form>
+    <button class="button" onclick="doSomething()" value="#de6262, #ffb88c"                                                       style="background-image: linear-gradient(#de6262, #ffb88c)"                                                      ></button>
+    <button class="button" onclick="doSomething()" value="#ff9a00, #ffdb00"                                                       style="background-image: linear-gradient(#ff9a00, #ffdb00)"                                                      ></button>
+    <button class="button" onclick="doSomething()" value="#fdfc96, #e4f78f, #bfef88, #97e47e, #79dc78"                            style="background-image: linear-gradient(#fdfc96, #e4f78f, #bfef88, #97e47e, #79dc78)"                           ></button>
+    <button class="button" onclick="doSomething()" value="##79dc78, #02aab0"                                                      style="background-image: linear-gradient(#79dc78, #02aab0)"                                                      ></button>
+    <br><br>
+    <button class="button" onclick="doSomething()" value="#02aab0, #4364a9"                                                       style="background-image: linear-gradient(#02aab0, #4364a9)"                                                      ></button>
+    <button class="button" onclick="doSomething()" value="#1c92d2, #f2fcfe"                                                       style="background-image: linear-gradient(#1c92d2, #f2fcfe)"                                                      ></button>
+    <button class="button" onclick="doSomething()" value="#92b8ff, #b29ae7"                                                       style="background-image: linear-gradient(#92b8ff, #b29ae7)"                                                      ></button>
+    <button class="button" onclick="doSomething()" value="#d4a1ce, #deb9da, #decedd"                                              style="background-image: linear-gradient(#d4a1ce, #deb9da, #decedd)"                                             ></button>
+    <br><br>
+    <button class="button" onclick="doSomething()" value="#ffafbd, #ffc3a0"                                                       style="background-image: linear-gradient(#ffafbd, #ffc3a0)"                                                      ></button>
+    <button class="button" onclick="doSomething()" value="#39811d, #fafafa, #440907"                                              style="background-image: linear-gradient(#39811d, #fafafa, #440907)"                                             ></button>
+    <button class="button" onclick="doSomething()" value="#39811d, #440907"                                                       style="background-image: linear-gradient(#39811d, #440907)"                                                      ></button>
+    <button class="button" onclick="doSomething()" value="#0a2286, #f7f7f7, #f7f7f7, #e53631"                                     style="background-image: linear-gradient(#0a2286, #f7f7f7, #f7f7f7, #e53631)"                                    ></button>
+    <br><br>
+    <button class="button" onclick="doSomething()" value="#ffadad, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff, #ffc6ff" style="background-image: linear-gradient(#ffadad, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff, #ffc6ff)"></button>
+    <button class="button" onclick="doSomething()" value="#33539e, #7facd6, #bfb8da, #e8b7da, #a5678e"                            style="background-image: linear-gradient(#33539e, #7facd6, #bfb8da, #e8b7da, #a5678e)"                           ></button>
+    <button class="button" onclick="doSomething()" value="#aac9ce, #b6b4c2, #c9bbcb, #e5c1cd, #f3dbcf"                            style="background-image: linear-gradient(#aac9ce, #b6b4c2, #c9bbcb, #e5c1cd, #f3dbcf)"                           ></button>
+    <button class="button" onclick="doSomething()" value="#f2b79d, #eee5ae, #d0e18f, #86e5a4, #5ad0af"                            style="background-image: linear-gradient(#f2b79d, #eee5ae, #d0e18f, #86e5a4, #5ad0af)"                           ></button>
+    </form>
+    
+    <script>
+    function doSomething() {
+      $(document).ready(function(){
+        $("button").click(function(){
+        var colours = $(this).attr("value");
+ 
+        google.script.run.withFailureHandler(function(error) {
+          console.log("error")
+          console.log(error.message)
+        }).withSuccessHandler(function(result) {
+          console.log("done!")
+        }).template(colours);
+       });
+       });
+      }
+    </script>
+  </body>
+</html>
