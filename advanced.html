@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base target="_top">
+  </head>
+  <style>
+    p {
+    font-family:arial;
+    text-align:center
+    }
+  </style>
+  <body>
+  
+    <!---here is the title---> 
+    <h3 style="font-family:arial;text-align:center">Advanced Menu</h3>
+    
+    <!----instructions-->
+    <p>Step 1: Select the range you want to fill</p>
+    <p>Step 2: List the colours you want, following the format in the example. Include the # sign and separate each colour with a comma then a space.</p>
+    <p>Step 3: List the rows you want each colour to start from, following the format in the example. Separate each row # with a comma then a space. Leave blank if you want the rows to be auto-calculated.</p>
+    <p>Step 4: Make sure the colours and rows match. You should have the same number of colours as rows.</p>
+    <p>Step 5: Click the checkbox if you want absolute row references.</p>
+    <p>Step 6: Click the <i>Submit</i> button!</p>
+    
+    <!-----buttons with colour menu--->
+    
+    <form id="Advanced" onsubmit="doSomething()">
+    
+      <label for="colours" style="font-family:arial" >Colours:</label>
+      <input type="text" id="colours" value="#ffadad, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff, #ffc6ff"> 
+      <br><br>
+      
+      <label for="rows" style="font-family:arial">Rows:</label>
+      <input type="text" id="rows" value="5, 10, 15, 20, 25, 30, 35, 40">
+      <br><br>
+      
+      <label for="mode" style="font-family:arial" >Use absolute row references?</label>
+      <input type="checkbox" name="mode" id="mode"> 
+      <br><br>
+      
+      <input type="submit" value="Submit">
+      
+    </form>
+    
+    <script>
+      function doSomething() {
+      
+        var colours = document.getElementById("colours").value;
+        var rows = document.getElementById("rows").value;
+        var mode = document.getElementById("mode").checked;
+        
+        if (mode) {
+          mode = 'absolute'
+        } else {
+          mode = 'relative'
+        }
+        
+        google.script.run.withFailureHandler(function(error) {
+          console.log("error")
+          console.log(error.message)
+        }).withSuccessHandler(function(result) {
+          console.log("done!")
+        }).advanced(colours, rows, mode);
+        
+      }
+    </script>
+    
+  </body>
+</html>
