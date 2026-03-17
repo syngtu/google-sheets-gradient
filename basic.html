@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base target="_top">
+  </head>
+  <style>
+    p {
+    font-family:arial;
+    text-align:center
+    }
+    form {
+    font-family:arial;
+    text-align:center
+    }
+  </style>
+  <body>
+  
+    <!---here is the title---> 
+    <h3 style="font-family:arial;text-align:center">Basic Menu</h3>
+    
+    <!----instructions-->
+    <p>Step 1: Select the range you want to fill</p>
+    <p>Step 2: Select the colours you want</p>
+    <p>Step 3: Click the <i>Submit</i> button!</p>
+    
+    <!-----buttons with colour menu--->
+    
+    <form id="Basic" onsubmit="doSomething()">
+    
+      <label for="startcolour" >Start:</label>
+      <input type="color" id="startcolour" value="#000000"> 
+      &nbsp;
+      
+      <label for="endcolour" >End:</label>
+      <input type="color" id="endcolour" value="#ffffff">
+      <br><br>
+      
+      <input type="submit" value="Submit">
+      
+    </form>
+    
+    <script>
+      function doSomething() {
+        var startcolour = document.getElementById("startcolour").value;
+        var endcolour = document.getElementById("endcolour").value;
+        
+        google.script.run.withFailureHandler(function(error) {
+          console.log("error")
+          console.log(error.message)
+        }).withSuccessHandler(function(result) {
+          console.log("done!")
+        }).basic(startcolour,endcolour);
+        
+      }
+    </script>
+    
+  </body>
+</html>
